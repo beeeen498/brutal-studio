@@ -1,6 +1,32 @@
-header{
-    background-color: var(--white);
-    height: 100vh;
+header {
+  background-color: var(--white);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  /* -------- top bar -------- */
+  .topBar {
+    display: flex;
+    justify-content: space-between;
+    height: 15%;
+    margin: 0 40px;
+  }
+
+  /* -------- logo -------- */
+  .logo {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+
+    .logoImage {
+      img {
+        height: 30px;
+      }
+    }
+  }
+
+  .companyName {
+    text-transform: capitalize;
+    margin: 0;
+  }
 }

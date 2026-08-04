@@ -1,5 +1,5 @@
 import React from "react";
-import "./Nav";
+import "./Nav.scss";
 
 function Nav() {
   const handleClick = (e, id) => {

@@ -4,15 +4,19 @@ import Nav from "./Nav/Nav";
 
 function Header() {
   return (
-    <header id="home">
-      <div className="logo">
-        <div className="logoImage">
-          <img src="/public/assets/images/logo.png" alt="logo" />
-        </div>
-        <h2 className="companyName">brutal studio</h2>
-      </div>
+    <header>
+      {/* -------- top bar -------- */}
+      <div className="topBar">
+        <div className="logo">
+          <div className="logoImage">
+            <img src="/assets/images/logo.png" alt="logo" />
+          </div>
 
-      <Nav />
+          <h2 className="companyName">brutal studio</h2>
+        </div>
+
+        <Nav />
+      </div>
     </header>
   );
 }
