@@ -1,0 +1,114 @@
+.bookMeeting{
+    height: 70vh;
+    background-image: url("../../public/assets/images/contact-us/contact-us-background.png");
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.bookMeetingMainContent{
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.bookMeetingLeft{
+    text-transform: uppercase;
+    font-size: 40px;
+    text-align: right;
+}
+
+.withUs{
+    display: inline-block;
+    transform: translateX(140px);
+}
+
+.bookMeetingRight{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.bookMeetingInput {
+    all: unset;
+    text-transform: uppercase;
+    border: 1px solid black;
+    padding: 16px;
+    width: 250px;
+}
+
+.bookMeetingInput::placeholder {
+    font-size: 10px; /* Adjust the font size as needed */
+    font-weight: 400;
+}
+
+.message{
+    text-wrap: wrap;
+}
+
+.sendButton{
+    text-align: center;
+    background-color: black;
+    color: var(--white);
+}
+
+.sendButton:hover{
+    cursor: pointer;
+}
+
+.sendButtonClicked{
+    background-color: var(--white);
+    color: black;
+    border: 0.5px solid black;
+    transition: right 2s ease-in-out;
+    text-align: center;
+}
+
+.atomImageDiv{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    position: relative;
+}
+
+.atomImage{
+    background-image: url("../../public/assets/images/contact-us/atom.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 120px;
+    width: 200px;
+    position: absolute;
+}
+
+/* sliding text */
+.slidingText{
+    position: absolute;
+    text-transform: uppercase;
+    font-size: 40px;
+    width: 50%;
+    text-align: center;
+    margin-right: 350px;
+    transform: translate(190px, -139px);
+    /* background-color: aqua; */
+    opacity: 0;
+}
+
+.slideUpAnimation{
+    animation: slideUp 0.5s ease-in-out forwards;
+}
+
+@keyframes slideUp{
+    0%{
+        /* transform: translateY(100%); */
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+        transform: translate(180px, -377px);
+    }
+}
+
+.zeroOpacity{
+    opacity: 0;
+}

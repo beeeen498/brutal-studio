@@ -1,0 +1,65 @@
+/* -------- Hero Section -------- */
+.hero {
+  background-color: var(--white);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  /* -------- main content -------- */
+  .heroMainContent {
+    height: 70%;
+    display: flex;
+    border: 2px solid black;
+    margin: 0 40px;
+    justify-content: space-between;
+  }
+
+  /* -------- left side -------- */
+  .mainContentLeftSide {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+
+    h1 {
+      text-transform: uppercase;
+      width: 50%;
+      font-size: 90px;
+    }
+
+    .mainContentLeftSideText :nth-child(2) {
+      margin-left: 50px;
+    }
+  }
+
+  /* -------- right side -------- */
+  .mainContentRightSide {
+    background: linear-gradient(to top right, var(--pink) 55%, #d55db7 40%);
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+
+    .rightSideImage {
+      // background-image: url("/assets/images/hero/hero.jpg");
+      background-size: cover;
+      background-position: center;
+      height: 70%;
+      width: 80%;
+      margin-left: 20px;
+      margin-bottom: 20px;
+      box-shadow: -20px 20px 0 rgba(0, 0, 0, 1);
+    }
+  }
+
+  /* -------- bottom strip -------- */
+  .bottom {
+    height: 15%;
+
+    .bottomLeft {
+      width: 30%;
+      height: 100%;
+      border-right: 2px solid black;
+    }
+  }
+}

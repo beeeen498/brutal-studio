@@ -1,0 +1,54 @@
+.ourServices{
+    height: 81vh;
+    background-image: url("../../public/assets/images/services-background.png");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.servicesAccordion{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 70%;
+    width: 70%;
+}
+
+.item{
+    margin: 10px;
+}
+
+.serviceName{
+    padding: 30px;
+    font-size: 40px;
+    margin: 20px;
+    background-color: var(--pink);
+    text-transform: uppercase;
+    margin: 0;
+    text-align: center;
+}
+
+.serviceName:hover{
+    cursor: pointer;
+}
+
+.serviceDescription {
+    background-color: var(--pink);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    text-align: center;
+    font-size: 25px;
+    padding: 5px;
+}
+
+.serviceDescription.open {
+    max-height: 200px; /* Adjust the height as needed */
+}
+
+.serviceDescription.closed {
+    max-height: 0;
+}

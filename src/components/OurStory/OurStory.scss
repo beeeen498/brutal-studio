@@ -1,0 +1,167 @@
+.ourStoryContainer {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    background-color: black;
+    color: var(--white);
+    height: 100vh;
+}
+
+.ourStory {
+    display: flex;
+    /* justify-content: space-between; */
+    height: 80%;
+    transition: transform 0.5s ease;
+    will-change: transform;
+    /* gap: 10px; */
+}
+
+.ourStoryHeading{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 40px;
+    margin: 0;
+    margin-top: 40px;
+}
+
+.storyItem {
+    min-width: 100%;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    opacity: 0;
+    /* visibility: hidden; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+.storyItem.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.storyYear {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    display: inline;
+}
+
+.storyContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    width: 80%;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.storyText {
+    width: 100%;
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+.storyImage {
+    width: 50%;
+    max-width: 100%;
+    height: auto;
+}
+
+.sliderContainer {
+    width: 100%;
+    /* margin: 20px auto; */
+    text-align: center;
+}
+
+.slider {
+    width: 100%;
+}
+
+.small{
+    transform: scale(50%);
+    transition: 1s;
+    filter: blur(4px);
+}
+
+.big{
+    transform: scale(100%);
+    transition: 1s;
+    filter: none;
+}
+
+/* ---------- Style for the range input ---------- */
+input[type="range"] {
+    -webkit-appearance: none;
+    width: 300px; /* Adjust the width to make the slider wider */
+    background: transparent; /* Makes the default background transparent */
+    outline: none;
+    cursor: pointer;
+}
+  
+/* WebKit browsers */
+input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 1px; /* Thin line for the track */
+    background: #C0C0C0; /* Silver track */
+    border-radius: 1px;
+}
+  
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px; /* Outer thumb size */
+    height: 20px; /* Outer thumb size */
+    background: black; /* Inner solid color */
+    border: 2px solid #C0C0C0; /* Silver border */
+    box-shadow: 0 0 0 1px #fff; /* White outline to cover track */
+    cursor: pointer;
+    border-radius: 50%;
+    margin-top: -9px; /* Adjust to position the thumb correctly */
+}
+  
+/* Firefox */
+  input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 1px; /* Thin line for the track */
+    background: #C0C0C0; /* Silver track */
+    border-radius: 1px;
+}
+  
+input[type="range"]::-moz-range-thumb {
+    width: 20px; /* Outer thumb size */
+    height: 20px; /* Outer thumb size */
+    background: black; /* Inner solid color */
+    border: 2px solid #C0C0C0; /* Silver border */
+    box-shadow: 0 0 0 1px #fff; /* White outline to cover track */
+    cursor: pointer;
+    border-radius: 50%;
+}
+  
+/* IE */
+  input[type="range"]::-ms-track {
+    width: 100%;
+    height: 1px; /* Thin line for the track */
+    background: transparent; /* Fallback for IE */
+    border-color: transparent;
+    color: transparent;
+}
+  
+input[type="range"]::-ms-fill-lower {
+    background: #C0C0C0; /* Silver track */
+}
+  
+input[type="range"]::-ms-fill-upper {
+    background: #C0C0C0; /* Silver track */
+}
+  
+input[type="range"]::-ms-thumb {
+    width: 20px; /* Outer thumb size */
+    height: 20px; /* Outer thumb size */
+    background: black; /* Inner solid color */
+    border: 2px solid #C0C0C0; /* Silver border */
+    box-shadow: 0 0 0 1px #fff; /* White outline to cover track */
+    cursor: pointer;
+    border-radius: 50%;
+}

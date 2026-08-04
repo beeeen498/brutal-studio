@@ -1,0 +1,48 @@
+.companies{
+    height: 150px;
+    background-color: var(--blue);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.ourClients{
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+    padding-top: 20px;
+    white-space: nowrap;
+}
+
+.logos{
+    display: flex;
+    white-space: nowrap;
+    position: relative;
+    width: 200%;
+    height: 100%;
+}
+
+.logosSlide{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    animation: slide 45s infinite linear;
+}
+
+.companyImage{
+    height: 55px;
+    display: inline-block;
+    display: flex;
+    margin-right: 200px;
+}
+
+
+@keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }

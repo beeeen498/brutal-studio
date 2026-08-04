@@ -1,0 +1,115 @@
+.ourWork {
+    background-image: url("../../public/assets/images/our-work/our-work-background.png");
+    padding-bottom: 10px;
+    background-size: cover;
+}
+
+.ourWorkHeading {
+    margin: 0;
+    text-transform: uppercase;
+    padding: 30px 50px;
+    font-size: 50px;
+}
+
+h2, h3 {
+    margin: 0;
+}
+
+.workDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.work {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid black;
+    padding: 10px 50px;
+    width: 80%;
+    position: relative;
+    overflow: hidden; /* Ensure the sliding element stays within the .work element */
+}
+
+.work:last-child {
+    border-bottom: 1px solid black;
+}
+
+.workTitle {
+    width: 60%;
+    font-size: 30px;
+}
+
+.workText {
+    height: 200px;
+    font-weight: 500;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.workText p {
+    margin: 0;
+}
+
+.workImage {
+    height: 200px;
+    width: 200px;
+    background-size: cover;
+    background-position: center;
+    border: 0.5px solid black;
+    margin-left: 170px;
+}
+
+.arrowIconDiv {
+    display: flex;
+    align-items: center;
+}
+
+.arrowIcon {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    z-index: 3;
+    transition: transform 0.5s ease-in-out;
+    color: var(--pink);
+}
+
+.arrowIcon:hover {
+    transform: scale(1.5);
+}
+
+.arrowIcon.rotate {
+    transform: rotate(180deg); /* Rotate 180 degrees */
+}
+
+
+.slidingElement {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Adjust color as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    color: #fff; /* Adjust text color as needed */
+    font-size: 24px; /* Adjust font size as needed */
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out; /* Set transition duration to 1s */
+    opacity: 0; /* Initial opacity */
+    text-align: center;
+}
+
+.slidingElementText{
+    padding: 200px;
+}
+
+.slideRight {
+    transform: translateX(100%);
+    opacity: 1; /* Final opacity */
+}
