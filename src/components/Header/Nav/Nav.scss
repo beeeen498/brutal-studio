@@ -58,7 +58,6 @@ nav {
     gap: 5px;
     cursor: pointer;
     padding: 10px;
-    z-index: 20;
 
     .bar {
       display: block;
@@ -83,7 +82,7 @@ nav {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1370px) {
   nav {
     border-left: none;
 
