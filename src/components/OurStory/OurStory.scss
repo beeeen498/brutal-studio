@@ -1,167 +1,187 @@
-.ourStoryContainer {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    background-color: black;
-    color: var(--white);
-    height: 100vh;
-}
+.our-story {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  color: var(--white);
 
-.ourStory {
-    display: flex;
-    /* justify-content: space-between; */
-    height: 80%;
-    transition: transform 0.5s ease;
-    will-change: transform;
-    /* gap: 10px; */
-}
-
-.ourStoryHeading{
+  /* -------- heading -------- */
+  &__heading {
     text-align: center;
     text-transform: uppercase;
     font-size: 40px;
     margin: 0;
-    margin-top: 40px;
-}
+    padding: 40px 0 20px;
+  }
 
-.storyItem {
-    min-width: 100%;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-    opacity: 0;
-    /* visibility: hidden; */
+  /* -------- slide track -------- */
+  &__track {
     display: flex;
-    justify-content: space-between;
+    height: 70%;
+    transition: transform 0.6s ease;
+    will-change: transform;
+  }
+
+  /* -------- individual slide -------- */
+  &__slide {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    flex-direction: column;
-}
+    transition:
+      transform 0.6s ease,
+      opacity 0.6s ease,
+      filter 0.6s ease;
 
-.storyItem.visible {
-    opacity: 1;
-    visibility: visible;
-}
+    /* ---- active slide ---- */
+    &--active {
+      transform: scale(1);
+      opacity: 1;
+      filter: none;
+    }
 
-.storyYear {
+    /* ---- inactive slide ---- */
+    &--inactive {
+      transform: scale(0.5);
+      opacity: 0;
+      filter: blur(4px);
+    }
+  }
+
+  /* -------- slide content (text + image) -------- */
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    height: 100%;
+    gap: 40px;
+  }
+
+  /* -------- text block -------- */
+  &__text-block {
+    flex: 1;
+  }
+
+  &__year {
     font-size: 30px;
     font-weight: bold;
-    text-align: center;
-    display: inline;
-}
+    margin-bottom: 10px;
+  }
 
-.storyContent {
+  &__text {
+    font-size: 24px;
+    line-height: 1.5;
+    font-weight: 300;
+  }
+
+  /* -------- image -------- */
+  &__image {
+    width: 45%;
+    max-height: 80%;
+    object-fit: contain;
+  }
+
+  /* -------- navigation dots -------- */
+  &__nav {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    text-align: left;
-    width: 80%;
-    margin: 0 auto;
-    height: 100%;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px 0;
+  }
+
+  &__dot {
+    all: unset;
+    cursor: pointer;
+    font-family: var(--header-font);
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.4);
+    padding: 8px 16px;
+    border-bottom: 2px solid transparent;
+    transition:
+      color 0.3s,
+      border-color 0.3s;
+
+    &:hover {
+      color: var(--white);
+    }
+
+    /* ---- active dot ---- */
+    &--active {
+      color: var(--white);
+      border-bottom: 2px solid var(--pink);
+    }
+  }
 }
 
-.storyText {
-    width: 100%;
-    font-size: 30px;
-    margin-right: 10px;
+/* -------- tablet -------- */
+@media (max-width: 1024px) {
+  .our-story {
+    &__content {
+      width: 90%;
+      gap: 20px;
+    }
+
+    &__text {
+      font-size: 20px;
+    }
+
+    &__image {
+      width: 40%;
+    }
+  }
 }
 
-.storyImage {
-    width: 50%;
-    max-width: 100%;
+/* -------- mobile -------- */
+@media (max-width: 768px) {
+  .our-story {
     height: auto;
-}
+    min-height: 100vh;
 
-.sliderContainer {
-    width: 100%;
-    /* margin: 20px auto; */
-    text-align: center;
-}
+    &__heading {
+      font-size: 28px;
+      padding: 30px 0 15px;
+    }
 
-.slider {
-    width: 100%;
-}
+    &__track {
+      height: auto;
+      min-height: 60vh;
+    }
 
-.small{
-    transform: scale(50%);
-    transition: 1s;
-    filter: blur(4px);
-}
+    /* ---- stack text above image ---- */
+    &__content {
+      flex-direction: column;
+      width: 85%;
+      padding: 20px 0;
+    }
 
-.big{
-    transform: scale(100%);
-    transition: 1s;
-    filter: none;
-}
+    &__text-block {
+      text-align: center;
+    }
 
-/* ---------- Style for the range input ---------- */
-input[type="range"] {
-    -webkit-appearance: none;
-    width: 300px; /* Adjust the width to make the slider wider */
-    background: transparent; /* Makes the default background transparent */
-    outline: none;
-    cursor: pointer;
-}
-  
-/* WebKit browsers */
-input[type="range"]::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 1px; /* Thin line for the track */
-    background: #C0C0C0; /* Silver track */
-    border-radius: 1px;
-}
-  
-input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 20px; /* Outer thumb size */
-    height: 20px; /* Outer thumb size */
-    background: black; /* Inner solid color */
-    border: 2px solid #C0C0C0; /* Silver border */
-    box-shadow: 0 0 0 1px #fff; /* White outline to cover track */
-    cursor: pointer;
-    border-radius: 50%;
-    margin-top: -9px; /* Adjust to position the thumb correctly */
-}
-  
-/* Firefox */
-  input[type="range"]::-moz-range-track {
-    width: 100%;
-    height: 1px; /* Thin line for the track */
-    background: #C0C0C0; /* Silver track */
-    border-radius: 1px;
-}
-  
-input[type="range"]::-moz-range-thumb {
-    width: 20px; /* Outer thumb size */
-    height: 20px; /* Outer thumb size */
-    background: black; /* Inner solid color */
-    border: 2px solid #C0C0C0; /* Silver border */
-    box-shadow: 0 0 0 1px #fff; /* White outline to cover track */
-    cursor: pointer;
-    border-radius: 50%;
-}
-  
-/* IE */
-  input[type="range"]::-ms-track {
-    width: 100%;
-    height: 1px; /* Thin line for the track */
-    background: transparent; /* Fallback for IE */
-    border-color: transparent;
-    color: transparent;
-}
-  
-input[type="range"]::-ms-fill-lower {
-    background: #C0C0C0; /* Silver track */
-}
-  
-input[type="range"]::-ms-fill-upper {
-    background: #C0C0C0; /* Silver track */
-}
-  
-input[type="range"]::-ms-thumb {
-    width: 20px; /* Outer thumb size */
-    height: 20px; /* Outer thumb size */
-    background: black; /* Inner solid color */
-    border: 2px solid #C0C0C0; /* Silver border */
-    box-shadow: 0 0 0 1px #fff; /* White outline to cover track */
-    cursor: pointer;
-    border-radius: 50%;
+    &__year {
+      font-size: 24px;
+    }
+
+    &__text {
+      font-size: 18px;
+    }
+
+    &__image {
+      width: 80%;
+      max-height: 300px;
+    }
+
+    /* ---- smaller dots ---- */
+    &__nav {
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    &__dot {
+      font-size: 12px;
+      padding: 6px 12px;
+    }
+  }
 }

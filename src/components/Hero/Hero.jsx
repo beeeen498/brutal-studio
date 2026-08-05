@@ -1,4 +1,5 @@
 import React from "react";
+import { IoIosArrowDown } from "react-icons/io";
 import "./Hero.scss";
 
 function Hero() {
@@ -24,6 +25,11 @@ function Hero() {
       {/* -------- bottom strip -------- */}
       <div className="bottom">
         <div className="bottomLeft"></div>
+      </div>
+
+      {/* -------- scroll arrow -------- */}
+      <div className="scrollArrow">
+        <IoIosArrowDown />
       </div>
     </section>
   );

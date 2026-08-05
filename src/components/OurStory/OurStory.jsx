@@ -1,56 +1,70 @@
 import React, { useState } from "react";
-import "./OurStory";
+import "./OurStory.scss";
 import ourStory from "./data/ourStory";
 
 function OurStory() {
-    const [sliderValue, setSliderValue] = useState(0);
+  const storyEntries = Object.entries(ourStory);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-    const handleSliderChange = (event) => {
-        setSliderValue(event.target.value);
-    };
+  /* -------- slide navigation -------- */
+  function goToSlide(index) {
+    setActiveIndex(index);
+  }
 
-    const isBigVisible = (value) => {
-        return (
-            (value <= 1) ||
-            (value >= 90 && value <= 120) ||
-            (value >= 190 && value <= 220) ||
-            value >= 299
-        );
-    };
+  function handlePrev() {
+    setActiveIndex((prev) => (prev > 0 ? prev - 1 : prev));
+  }
 
-    return (
-        <div className="ourStoryContainer" id="ourStory">
-            <h2 className="ourStoryHeading">our story (so far)</h2>
-
-            <div className="ourStory" style={{ transform: `translateX(-${sliderValue}%)` }}>
-                {Object.entries(ourStory).map(([year, content], index) => (
-                    <div
-                        key={year}
-                        className={`storyItem ${isBigVisible(sliderValue) ? "big" : "small"} visible`}
-                    >
-                        <div className="storyContent">
-                            <div className="stryContentText">
-                                <h2 className="storyYear">{year}</h2>
-                                <p className="storyText">{content.text}</p>
-                            </div>
-                            <img className="storyImage" src={content.image} alt={`${year} Image`} />
-                        </div>
-                    </div>
-                ))}
-            </div>
-
-            <div className="sliderContainer">
-                <input
-                    type="range"
-                    min="0"
-                    max="300"
-                    value={sliderValue}
-                    onChange={handleSliderChange}
-                    className="slider"
-                />
-            </div>
-        </div>
+  function handleNext() {
+    setActiveIndex((prev) =>
+      prev < storyEntries.length - 1 ? prev + 1 : prev,
     );
+  }
+
+  return (
+    <section className="our-story" id="ourStory">
+      {/* -------- heading -------- */}
+      <h2 className="our-story__heading">our story (so far)</h2>
+
+      {/* -------- slides -------- */}
+      <div
+        className="our-story__track"
+        style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+      >
+        {storyEntries.map(([year, content], index) => (
+          <div
+            key={year}
+            className={`our-story__slide ${index === activeIndex ? "our-story__slide--active" : "our-story__slide--inactive"}`}
+          >
+            <div className="our-story__content">
+              <div className="our-story__text-block">
+                <h2 className="our-story__year">{year}</h2>
+                <p className="our-story__text">{content.text}</p>
+              </div>
+              <img
+                className="our-story__image"
+                src={content.image}
+                alt={`${year}`}
+              />
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* -------- navigation dots -------- */}
+      <div className="our-story__nav">
+        {storyEntries.map(([year], index) => (
+          <button
+            key={year}
+            className={`our-story__dot ${index === activeIndex ? "our-story__dot--active" : ""}`}
+            onClick={() => goToSlide(index)}
+          >
+            {year}
+          </button>
+        ))}
+      </div>
+    </section>
+  );
 }
 
 export default OurStory;
