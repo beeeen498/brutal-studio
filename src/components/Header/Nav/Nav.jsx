@@ -1,40 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Nav.scss";
 
 function Nav() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const navItems = [
+    { label: "our story", id: "ourStory" },
+    { label: "our team", id: "ourTeam" },
+    { label: "our services", id: "ourServices" },
+    { label: "our work", id: "ourWork" },
+    { label: "book a meeting", id: "bookMeeting" },
+  ];
+
   const handleClick = (e, id) => {
     e.preventDefault();
     document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+    setIsOpen(false); /* close menu after clicking a link */
   };
 
   return (
     <nav>
-      <ul className="navList">
-        <li className="navListItem">
-          <a href="#ourStory" onClick={(e) => handleClick(e, "ourStory")}>
-            our story
-          </a>
-        </li>
-        <li className="navListItem">
-          <a href="#ourTeam" onClick={(e) => handleClick(e, "ourTeam")}>
-            our team
-          </a>
-        </li>
-        <li className="navListItem">
-          <a href="#ourServices" onClick={(e) => handleClick(e, "ourServices")}>
-            our services
-          </a>
-        </li>
-        <li className="navListItem">
-          <a href="#ourWork" onClick={(e) => handleClick(e, "ourWork")}>
-            our work
-          </a>
-        </li>
-        <li className="navListItem">
-          <a href="#bookMeeting" onClick={(e) => handleClick(e, "bookMeeting")}>
-            book a meeting
-          </a>
-        </li>
+      {/* -------- hamburger button -------- */}
+      <div className="hamburger" onClick={() => setIsOpen(!isOpen)}>
+        <span className={`bar ${isOpen ? "open" : ""}`}></span>
+        <span className={`bar ${isOpen ? "open" : ""}`}></span>
+        <span className={`bar ${isOpen ? "open" : ""}`}></span>
+      </div>
+
+      {/* -------- nav list -------- */}
+      <ul className={`navList ${isOpen ? "showMenu" : ""}`}>
+        {navItems.map((item) => (
+          <li key={item.id} className="navListItem">
+            <a href={`#${item.id}`} onClick={(e) => handleClick(e, item.id)}>
+              {item.label}
+            </a>
+          </li>
+        ))}
       </ul>
     </nav>
   );
