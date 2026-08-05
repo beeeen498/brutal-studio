@@ -1,16 +1,10 @@
 header {
   background-color: var(--white);
-  height: 100vh;
   display: flex;
-  flex-direction: column;
-
-  /* -------- top bar -------- */
-  .topBar {
-    display: flex;
-    justify-content: space-between;
-    height: 15%;
-    margin: 0 40px;
-  }
+  justify-content: space-between;
+  align-items: stretch;
+  height: var(--header-height);
+  margin: 0 40px;
 
   /* -------- logo -------- */
   .logo {
@@ -23,10 +17,10 @@ header {
         height: 30px;
       }
     }
-  }
 
-  .companyName {
-    text-transform: capitalize;
-    margin: 0;
+    .companyName {
+      text-transform: capitalize;
+      margin: 0;
+    }
   }
 }

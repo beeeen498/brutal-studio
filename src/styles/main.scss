@@ -5,14 +5,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
 :root{
-    /* colors */
+    // colors 
     --white: #FEFEFE;
     --pink: #E950AA;
     --blue: #4847BC;
     
-    /* fonts */
+    // fonts 
     --header-font: "Krona One", sans-serif;
     --body-font: "Outfit", sans-serif;
+
+    // variables
+    --header-height: 80px;
 }
 
 body{

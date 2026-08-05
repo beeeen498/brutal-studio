@@ -1,6 +1,8 @@
 nav {
   display: flex;
   align-items: center;
+  border-left: 2px solid black;
+  height: 100%;
 
   /* -------- nav list -------- */
   .navList {
@@ -9,7 +11,6 @@ nav {
     align-items: center;
     font-size: 25px;
     text-transform: uppercase;
-    border-left: 2px solid black;
   }
 
   /* -------- nav list items -------- */

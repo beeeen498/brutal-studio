@@ -5,17 +5,19 @@ function Hero() {
   return (
     <section className="hero">
       {/* -------- main content -------- */}
-      <div className="heroMainContent">
-        <div className="mainContentLeftSide">
-          <div className="mainContentLeftSideText">
+      <div className="heroContent">
+        {/* left side - text */}
+        <div className="heroLeft">
+          <div className="heroText">
             <h1>brutalism</h1>
             <h1>is</h1>
             <h1>gentle</h1>
           </div>
         </div>
 
-        <div className="mainContentRightSide">
-          {/* <img src="/assets/images/hero/hero.jpg" alt="" /> */}
+        {/* right side - image */}
+        <div className="heroRight">
+          <img src="/assets/images/hero/hero.jpg" alt="hero" />
         </div>
       </div>
 
