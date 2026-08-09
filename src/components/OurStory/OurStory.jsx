@@ -52,6 +52,21 @@ function OurStory() {
     if (distance < -minSwipe) handlePrev(); // swipe right → prev
   }
 
+  /* -------- parallax on mouse move -------- */
+  function handleMouseMove(e) {
+    const { left, top, width, height } =
+      e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - left) / width - 0.5) * 20;
+    const y = ((e.clientY - top) / height - 0.5) * 20;
+    e.currentTarget.querySelector(".our-story__image").style.transform =
+      `translate(${x}px, ${y}px)`;
+  }
+
+  function handleMouseLeave(e) {
+    e.currentTarget.querySelector(".our-story__image").style.transform =
+      "translate(0, 0)";
+  }
+
   return (
     <section className="our-story" id="ourStory">
       {/* -------- heading -------- */}
@@ -70,7 +85,11 @@ function OurStory() {
             key={year}
             className={`our-story__slide ${index === activeIndex ? "our-story__slide--active" : "our-story__slide--inactive"}`}
           >
-            <div className="our-story__content">
+            <div
+              className="our-story__content"
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+            >
               <div className="our-story__text-block">
                 <h2 className="our-story__year">{year}</h2>
                 <p className="our-story__text">{content.text}</p>
