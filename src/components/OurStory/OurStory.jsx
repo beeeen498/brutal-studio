@@ -21,6 +21,17 @@ function OurStory() {
     );
   }
 
+  /* -------- keyboard navigation -------- */
+  React.useEffect(() => {
+    function handleKeyDown(e) {
+      if (e.key === "ArrowLeft") handlePrev();
+      if (e.key === "ArrowRight") handleNext();
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [activeIndex]);
+
   return (
     <section className="our-story" id="ourStory">
       {/* -------- heading -------- */}
@@ -61,6 +72,21 @@ function OurStory() {
             }}
           />
         </div>
+
+        {/* -------- arrow buttons -------- */}
+        <button
+          className={`our-story__arrow our-story__arrow--left ${activeIndex === 0 ? "our-story__arrow--hidden" : ""}`}
+          onClick={handlePrev}
+        >
+          &#8592;
+        </button>
+
+        <button
+          className={`our-story__arrow our-story__arrow--right ${activeIndex === storyEntries.length - 1 ? "our-story__arrow--hidden" : ""}`}
+          onClick={handleNext}
+        >
+          &#8594;
+        </button>
 
         <div className="our-story__timeline-labels">
           {storyEntries.map(([year], index) => (
