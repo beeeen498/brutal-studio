@@ -83,34 +83,53 @@
     object-fit: contain;
   }
 
-  /* -------- navigation dots -------- */
-  &__nav {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    padding: 20px 0;
+  /* -------- timeline navigation -------- */
+  &__timeline {
+    width: 60%;
+    margin: 0 auto;
+    padding: 30px 0;
   }
 
-  &__dot {
+  &__timeline-track {
+    position: relative;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 100%;
+  }
+
+  &__timeline-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: var(--pink);
+    transition: width 0.6s ease;
+  }
+
+  &__timeline-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+
+  &__timeline-label {
     all: unset;
     cursor: pointer;
     font-family: var(--header-font);
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.4);
-    padding: 8px 16px;
-    border-bottom: 2px solid transparent;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.3);
     transition:
       color 0.3s,
-      border-color 0.3s;
+      transform 0.3s;
 
     &:hover {
       color: var(--white);
     }
 
-    /* ---- active dot ---- */
+    /* ---- active year ---- */
     &--active {
       color: var(--white);
-      border-bottom: 2px solid var(--pink);
+      transform: scale(1.2);
     }
   }
 }
@@ -173,15 +192,13 @@
       max-height: 300px;
     }
 
-    /* ---- smaller dots ---- */
-    &__nav {
-      gap: 15px;
-      flex-wrap: wrap;
+    &__timeline {
+      width: 85%;
+      padding: 20px 0;
     }
 
-    &__dot {
-      font-size: 12px;
-      padding: 6px 12px;
+    &__timeline-label {
+      font-size: 11px;
     }
   }
 }

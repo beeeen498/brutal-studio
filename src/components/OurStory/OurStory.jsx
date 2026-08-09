@@ -51,17 +51,28 @@ function OurStory() {
         ))}
       </div>
 
-      {/* -------- navigation dots -------- */}
-      <div className="our-story__nav">
-        {storyEntries.map(([year], index) => (
-          <button
-            key={year}
-            className={`our-story__dot ${index === activeIndex ? "our-story__dot--active" : ""}`}
-            onClick={() => goToSlide(index)}
-          >
-            {year}
-          </button>
-        ))}
+      {/* -------- timeline navigation -------- */}
+      <div className="our-story__timeline">
+        <div className="our-story__timeline-track">
+          <div
+            className="our-story__timeline-fill"
+            style={{
+              width: `${(activeIndex / (storyEntries.length - 1)) * 100}%`,
+            }}
+          />
+        </div>
+
+        <div className="our-story__timeline-labels">
+          {storyEntries.map(([year], index) => (
+            <button
+              key={year}
+              className={`our-story__timeline-label ${index === activeIndex ? "our-story__timeline-label--active" : ""}`}
+              onClick={() => goToSlide(index)}
+            >
+              {year}
+            </button>
+          ))}
+        </div>
       </div>
     </section>
   );
