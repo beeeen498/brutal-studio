@@ -48,8 +48,8 @@ function OurStory() {
     const distance = touchStartX.current - touchEndX.current;
     const minSwipe = 50;
 
-    if (distance > minSwipe) handleNext(); // swipe left → next
-    if (distance < -minSwipe) handlePrev(); // swipe right → prev
+    if (distance > minSwipe) handleNext();
+    if (distance < -minSwipe) handlePrev();
   }
 
   /* -------- parallax on mouse move -------- */
@@ -58,12 +58,12 @@ function OurStory() {
       e.currentTarget.getBoundingClientRect();
     const x = ((e.clientX - left) / width - 0.5) * 20;
     const y = ((e.clientY - top) / height - 0.5) * 20;
-    e.currentTarget.querySelector(".our-story__image").style.transform =
+    e.currentTarget.querySelector(".storyImage").style.transform =
       `translate(${x}px, ${y}px)`;
   }
 
   function handleMouseLeave(e) {
-    e.currentTarget.querySelector(".our-story__image").style.transform =
+    e.currentTarget.querySelector(".storyImage").style.transform =
       "translate(0, 0)";
   }
 
@@ -76,7 +76,7 @@ function OurStory() {
       ([entry]) => {
         if (entry.isIntersecting) setIsVisible(true);
       },
-      { threshold: 0.3 },
+      { threshold: 0.1 },
     );
 
     if (sectionRef.current) observer.observe(sectionRef.current);
@@ -87,23 +87,20 @@ function OurStory() {
   }, []);
 
   return (
-    <section className="our-story" id="ourStory" ref={sectionRef}>
-      {" "}
-      <div
-        className={`our-story__inner ${isVisible ? "our-story__inner--visible" : ""}`}
-      >
+    <section className="ourStory" id="ourStory" ref={sectionRef}>
+      <div className={`storyInner ${isVisible ? "visible" : ""}`}>
         {/* -------- heading -------- */}
-        <h2 className="our-story__heading">our story (so far)</h2>
+        <h2 className="storyHeading">our story (so far)</h2>
 
         {/* -------- slide counter -------- */}
-        <span className="our-story__counter">
+        <span className="storyCounter">
           {String(activeIndex + 1).padStart(2, "0")} /{" "}
           {String(storyEntries.length).padStart(2, "0")}
         </span>
 
         {/* -------- slides -------- */}
         <div
-          className="our-story__track"
+          className="storyTrack"
           style={{ transform: `translateX(-${activeIndex * 100}%)` }}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
@@ -112,19 +109,19 @@ function OurStory() {
           {storyEntries.map(([year, content], index) => (
             <div
               key={year}
-              className={`our-story__slide ${index === activeIndex ? "our-story__slide--active" : "our-story__slide--inactive"}`}
+              className={`storySlide ${index === activeIndex ? "active" : "inactive"}`}
             >
               <div
-                className="our-story__content"
+                className="storyContent"
                 onMouseMove={handleMouseMove}
                 onMouseLeave={handleMouseLeave}
               >
-                <div className="our-story__text-block">
-                  <h2 className="our-story__year">{year}</h2>
-                  <p className="our-story__text">{content.text}</p>
+                <div className="storyTextBlock">
+                  <h2 className="storyYear">{year}</h2>
+                  <p className="storyText">{content.text}</p>
                 </div>
                 <img
-                  className="our-story__image"
+                  className="storyImage"
                   src={content.image}
                   alt={`${year}`}
                 />
@@ -134,10 +131,10 @@ function OurStory() {
         </div>
 
         {/* -------- timeline navigation -------- */}
-        <div className="our-story__timeline">
-          <div className="our-story__timeline-track">
+        <div className="storyTimeline">
+          <div className="timelineTrack">
             <div
-              className="our-story__timeline-fill"
+              className="timelineFill"
               style={{
                 width: `${(activeIndex / (storyEntries.length - 1)) * 100}%`,
               }}
@@ -146,24 +143,24 @@ function OurStory() {
 
           {/* -------- arrow buttons -------- */}
           <button
-            className={`our-story__arrow our-story__arrow--left ${activeIndex === 0 ? "our-story__arrow--hidden" : ""}`}
+            className={`storyArrow arrowLeft ${activeIndex === 0 ? "hidden" : ""}`}
             onClick={handlePrev}
           >
             &#8592;
           </button>
 
           <button
-            className={`our-story__arrow our-story__arrow--right ${activeIndex === storyEntries.length - 1 ? "our-story__arrow--hidden" : ""}`}
+            className={`storyArrow arrowRight ${activeIndex === storyEntries.length - 1 ? "hidden" : ""}`}
             onClick={handleNext}
           >
             &#8594;
           </button>
 
-          <div className="our-story__timeline-labels">
+          <div className="timelineLabels">
             {storyEntries.map(([year], index) => (
               <button
                 key={year}
-                className={`our-story__timeline-label ${index === activeIndex ? "our-story__timeline-label--active" : ""}`}
+                className={`timelineLabel ${index === activeIndex ? "activeLabel" : ""}`}
                 onClick={() => goToSlide(index)}
               >
                 {year}

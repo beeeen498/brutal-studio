@@ -1,105 +1,137 @@
-.ourTeam {
-    height: 100vh;
-    background-image: url("../../public/assets/images/our-team-background.png");
-    background-size: cover;
-    background-position: top;
-    overflow: hidden;
-}
+/* ==============================
+   OurTeam section
+   ============================== */
 
-.ourTeamHeading {
+.ourTeam {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  /* -------- background image -------- */
+  .teamBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    z-index: 0;
+  }
+
+  /* -------- heading -------- */
+  .teamHeading {
     margin: 0;
     text-transform: uppercase;
     padding: 30px 50px;
     font-size: 50px;
-}
+    position: relative;
+    z-index: 1;
 
-h2 {
-    margin: 0;
-}
+    h2 {
+      margin: 0;
+    }
+  }
 
-.theTeamDiv {
+  /* -------- grid wrapper -------- */
+  .teamGridWrapper {
     display: flex;
     justify-content: center;
-    height: 100%;
-}
+    flex: 1;
+    position: relative;
+    z-index: 1;
+  }
 
-.theTeam {
+  /* -------- grid -------- */
+  .teamGrid {
     display: flex;
     justify-content: space-around;
     height: 100%;
     width: 55%;
-}
 
-.noOpacity{
-    opacity: 0;
-}
+    &.hidden {
+      opacity: 0;
+    }
 
-.teamMember {
+    &.visible {
+      animation: slideIn 1.5s ease-in-out;
+      opacity: 1;
+    }
+  }
+
+  /* -------- single member card -------- */
+  .member {
     display: flex;
     flex-direction: column;
     padding: 10px;
     flex: 1;
     max-width: 250px;
-    height: 100%; /* Ensure each member takes up full height */
+    height: 100%;
     box-sizing: border-box;
-}
 
-.teamMember:nth-child(2) {
-    transform: translateY(-50px);
-}
+    /* offset the middle card */
+    &:nth-child(2) {
+      transform: translateY(-50px);
+      height: calc(100% + 50px);
+    }
+  }
 
-.teamMemberImage {
+  /* -------- photo -------- */
+  .memberPhoto {
     height: 300px;
+    width: 100%;
     background-size: cover;
     background-position: top;
-    width: 100%;
-}
+  }
 
-.teamMemberInfo {
+  /* -------- info block -------- */
+  .memberInfo {
     display: flex;
     flex-direction: column;
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
     border-left: 2px solid black;
-    flex-grow: 1; /* Ensure the border stretches to the bottom */
-    justify-content: space-between; /* Ensure content is spaced properly */
-}
+    flex-grow: 1;
+    justify-content: space-between;
+  }
 
-.teamMemberName {
+  /* -------- name -------- */
+  .memberName {
     text-transform: uppercase;
     font-size: 16px;
     width: 100%;
-}
+    margin: 0;
+  }
 
-.teamMemberRole {
+  /* -------- role -------- */
+  .memberRole {
     margin: 0;
     margin-top: 5px;
     text-transform: uppercase;
     font-size: 12px;
     width: 100%;
-}
+  }
 
-.teamMemberDescription {
+  /* -------- bio -------- */
+  .memberBio {
     font-size: 17px;
     width: 100%;
     font-weight: 200;
-    flex-grow: 1; /* Ensure the description takes up the remaining space */
+    flex-grow: 1;
+  }
 }
 
+/* -------- slide-in animation -------- */
 @keyframes slideIn {
-    0% {
-        transform: translateY(100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
-
-
-.slideIn {
-    animation: slideIn 1.5s ease-in-out;
-}
-
