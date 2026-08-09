@@ -6,6 +6,17 @@
   background-color: black;
   color: var(--white);
 
+  /* -------- slide counter -------- */
+  &__counter {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    font-family: var(--header-font);
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.4);
+    letter-spacing: 2px;
+  }
+
   /* -------- heading -------- */
   &__heading {
     text-align: center;
@@ -176,6 +187,13 @@
 /* -------- tablet -------- */
 @media (max-width: 1024px) {
   .our-story {
+    &__counter {
+      top: auto;
+      bottom: 20px;
+      right: 20px;
+      font-size: 12px;
+    }
+
     &__content {
       width: 90%;
       gap: 20px;

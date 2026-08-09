@@ -72,6 +72,12 @@ function OurStory() {
       {/* -------- heading -------- */}
       <h2 className="our-story__heading">our story (so far)</h2>
 
+      {/* -------- slide counter -------- */}
+      <span className="our-story__counter">
+        {String(activeIndex + 1).padStart(2, "0")} /{" "}
+        {String(storyEntries.length).padStart(2, "0")}
+      </span>
+
       {/* -------- slides -------- */}
       <div
         className="our-story__track"
