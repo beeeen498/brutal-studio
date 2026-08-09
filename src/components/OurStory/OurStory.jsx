@@ -32,6 +32,26 @@ function OurStory() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [activeIndex]);
 
+  /* -------- swipe support -------- */
+  const touchStartX = React.useRef(0);
+  const touchEndX = React.useRef(0);
+
+  function handleTouchStart(e) {
+    touchStartX.current = e.touches[0].clientX;
+  }
+
+  function handleTouchMove(e) {
+    touchEndX.current = e.touches[0].clientX;
+  }
+
+  function handleTouchEnd() {
+    const distance = touchStartX.current - touchEndX.current;
+    const minSwipe = 50;
+
+    if (distance > minSwipe) handleNext(); // swipe left → next
+    if (distance < -minSwipe) handlePrev(); // swipe right → prev
+  }
+
   return (
     <section className="our-story" id="ourStory">
       {/* -------- heading -------- */}
@@ -41,6 +61,9 @@ function OurStory() {
       <div
         className="our-story__track"
         style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
       >
         {storyEntries.map(([year, content], index) => (
           <div
