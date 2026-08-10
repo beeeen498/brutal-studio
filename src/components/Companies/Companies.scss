@@ -1,48 +1,70 @@
-.companies{
-    height: 150px;
-    background-color: var(--blue);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-}
+/* ==============================
+   Companies / clients section
+   ============================== */
 
-.ourClients{
+.companies {
+  height: 150px;
+  background-color: var(--blue);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  /* -------- heading -------- */
+  .ourClients {
     margin: 0;
     text-align: center;
     text-transform: uppercase;
     padding-top: 20px;
     white-space: nowrap;
-}
+  }
 
-.logos{
+  /* -------- logo carousel track -------- */
+  .logos {
     display: flex;
     white-space: nowrap;
     position: relative;
     width: 200%;
     height: 100%;
-}
+  }
 
-.logosSlide{
+  /* -------- sliding group (duplicated for seamless loop) -------- */
+  .logosSlide {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     animation: slide 45s infinite linear;
-}
+  }
 
-.companyImage{
+  /* -------- individual logo -------- */
+  .companyImage {
     height: 55px;
-    display: inline-block;
     display: flex;
     margin-right: 200px;
+  }
 }
 
-
+/* -------- carousel keyframes -------- */
 @keyframes slide {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-100%);
-    }
+  from {
+    transform: translateX(0);
   }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* -------- responsive -------- */
+@media (max-width: 768px) {
+  .companyImage {
+    height: 40px;
+    margin-right: 100px;
+  }
+}
+
+@media (max-width: 500px) {
+  .companyImage {
+    height: 30px;
+    margin-right: 60px;
+  }
+}

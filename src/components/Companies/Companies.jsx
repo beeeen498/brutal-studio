@@ -9,17 +9,17 @@ function Companies(){
             
             <div className="logos">
                 <div className="logosSlide">
-                    <img className="companyImage" src="/assets/images/company-1.png" alt="company logo" />
-                    <img className="companyImage" src="/assets/images/company-2.png" alt="company logo" />
-                    <img className="companyImage" src="/assets/images/company-3.png" alt="company logo" />
-                    <img className="companyImage" src="/assets/images/company-4.png" alt="company logo" />
+                    <img className="companyImage" src="/assets/images/companies/company-1.png" alt="company logo" />
+                    <img className="companyImage" src="/assets/images/companies/company-2.png" alt="company logo" />
+                    <img className="companyImage" src="/assets/images/companies/company-3.png" alt="company logo" />
+                    <img className="companyImage" src="/assets/images/companies/company-4.png" alt="company logo" />
                 </div>
 
                 <div className="logosSlide">
-                    <img className="companyImage" src="/assets/images/company-1.png" alt="company logo" />
-                    <img className="companyImage" src="/assets/images/company-2.png" alt="company logo" />
-                    <img className="companyImage" src="/assets/images/company-3.png" alt="company logo" />
-                    <img className="companyImage" src="/assets/images/company-4.png" alt="company logo" />
+                    <img className="companyImage" src="/assets/images/companies/company-1.png" alt="company logo" />
+                    <img className="companyImage" src="/assets/images/companies/company-2.png" alt="company logo" />
+                    <img className="companyImage" src="/assets/images/companies/company-3.png" alt="company logo" />
+                    <img className="companyImage" src="/assets/images/companies/company-4.png" alt="company logo" />
                 </div>
             </div>
         </div>
