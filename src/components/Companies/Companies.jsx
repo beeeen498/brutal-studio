@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./Companies";
+import "./Companies.scss";
 
 function Companies(){
     return(

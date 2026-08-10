@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./BookMeeting";
+import "./BookMeeting.scss";
 
 function BookMeeting(){
     const [isClicked, setIsClicked] = useState(false);

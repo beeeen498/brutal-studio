@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./OurWork";
+import "./OurWork.scss";
 import ourWork from "./data/ourWork";
 import { IoIosArrowRoundForward } from "react-icons/io";
 

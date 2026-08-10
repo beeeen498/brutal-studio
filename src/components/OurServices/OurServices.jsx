@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import "./OurServices";
+import "./OurServices.scss";
 import ourServices from "./data/ourServices";
 
 function OurServices() {
