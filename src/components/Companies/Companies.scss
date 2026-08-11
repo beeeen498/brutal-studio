@@ -30,17 +30,14 @@
   /* -------- sliding group (duplicated for seamless loop) -------- */
   .logosSlide {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     width: 100%;
-    animation: slide 45s infinite linear;
+    animation: slide 4s infinite linear;
   }
 
-  /* -------- individual logo -------- */
   .companyImage {
     height: 55px;
-    display: flex;
-    margin-right: 200px;
   }
 }
 
@@ -64,7 +61,7 @@
 
 @media (max-width: 500px) {
   .companyImage {
-    height: 30px;
-    margin-right: 60px;
+    height: 25px;
+    margin-right: 130px;
   }
 }

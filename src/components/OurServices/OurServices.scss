@@ -1,54 +1,187 @@
-.ourServices{
-    height: 81vh;
-    // background-image: url("../../public/assets/images/services-background.png");
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+/* ==============================
+   OurServices section
+   ============================== */
 
-.servicesAccordion{
+.ourServices {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 30px;
+
+  /* ==============================
+     background image
+     ============================== */
+  .servicesBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+  }
+
+  /* ==============================
+     heading
+     ============================== */
+  .servicesHeading {
+    text-transform: uppercase;
+    padding: 30px 50px;
+    font-size: 50px;
+    z-index: 1;
+    color: var(--white);
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  /* ==============================
+     accordion
+     ============================== */
+  .servicesAccordion {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    height: 70%;
+    flex: 1;
     width: 70%;
-}
+    align-self: center;
+    position: relative;
+    z-index: 1;
+  }
 
-.item{
+  /* -------- single accordion item -------- */
+  .serviceItem {
     margin: 10px;
-}
+  }
 
-.serviceName{
+  /* -------- clickable title bar -------- */
+  .serviceTitle {
+    display: flex;
+    align-items: center;
+    background-color: var(--pink);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.4s ease;
+
+    &:hover {
+      color: var(--white);
+    }
+  }
+
+  .serviceName {
+    position: relative;
+    z-index: 1;
     padding: 30px;
     font-size: 40px;
-    margin: 20px;
-    background-color: var(--pink);
-    text-transform: uppercase;
     margin: 0;
+    text-transform: uppercase;
     text-align: center;
-}
+    flex: 1;
+  }
 
-.serviceName:hover{
-    cursor: pointer;
-}
+  /* -------- expand / collapse icon -------- */
+  .serviceIcon {
+    position: relative;
+    z-index: 1;
+    padding-right: 30px;
+    flex-shrink: 0;
+  }
 
-.serviceDescription {
+  /* -------- expandable description -------- */
+  .serviceDescription {
     background-color: var(--pink);
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-out;
+    transition:
+      max-height 0.3s ease-out,
+      padding 0.3s ease-out;
     text-align: center;
     font-size: 25px;
-    padding: 5px;
+    padding: 0 20px;
+
+    &.open {
+      max-height: 250px;
+      padding: 20px;
+    }
+
+    &.closed {
+      max-height: 0;
+      padding: 0 20px;
+    }
+  }
 }
 
-.serviceDescription.open {
-    max-height: 200px; /* Adjust the height as needed */
+/* ==============================
+   responsive
+   ============================== */
+@media (max-width: 970px) {
+  .ourServices {
+    .servicesHeading {
+      font-size: 35px;
+      padding: 20px 30px;
+    }
+
+    .servicesAccordion {
+      width: 85%;
+    }
+
+    .serviceName {
+      font-size: 30px;
+      padding: 20px;
+    }
+
+    .serviceDescription {
+      font-size: 20px;
+    }
+  }
 }
 
-.serviceDescription.closed {
-    max-height: 0;
+@media (max-width: 665px) {
+  .ourServices {
+    .servicesHeading {
+      font-size: 25px;
+      padding: 15px 20px;
+    }
+
+    .servicesAccordion {
+      width: 95%;
+    }
+
+    .serviceName {
+      font-size: 22px;
+      padding: 15px;
+    }
+
+    .serviceDescription {
+      font-size: 16px;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .ourServices {
+    .servicesHeading {
+      font-size: 20px;
+      padding: 10px 15px;
+    }
+
+    .serviceName {
+      font-size: 18px;
+      padding: 12px;
+    }
+
+    .serviceDescription {
+      font-size: 14px;
+    }
+
+    .serviceIcon {
+      padding-right: 15px;
+    }
+  }
 }
