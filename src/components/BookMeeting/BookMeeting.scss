@@ -1,114 +1,174 @@
-.bookMeeting{
-    height: 70vh;
-    // background-image: url("../../assets/images/contact-us/background.png");
-    background-size: cover;
-    background-position: center;
-    overflow: hidden;
-}
+/* ==============================
+   BookMeeting section
+   ============================== */
 
-.bookMeetingMainContent{
+.bookMeeting {
+  height: 70vh;
+  overflow: hidden;
+  position: relative;
+
+  /* -------- background image -------- */
+  .sectionBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+  }
+
+  /* -------- main content wrapper -------- */
+  .content {
     height: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
-}
+    position: relative;
+    z-index: 1;
+  }
 
-.bookMeetingLeft{
+  /* -------- left heading -------- */
+  .heading {
     text-transform: uppercase;
     font-size: 40px;
     text-align: right;
-}
+  }
 
-.withUs{
+  .withUs {
     display: inline-block;
     transform: translateX(140px);
-}
+  }
 
-.bookMeetingRight{
+  /* -------- right form -------- */
+  .form {
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
+  }
 
-.bookMeetingInput {
+  /* -------- form inputs -------- */
+  .input {
     all: unset;
     text-transform: uppercase;
     border: 1px solid black;
     padding: 16px;
     width: 250px;
-}
+    transition: border-color 0.3s ease;
 
-.bookMeetingInput::placeholder {
-    font-size: 10px; /* Adjust the font size as needed */
-    font-weight: 400;
-}
+    &::placeholder {
+      font-size: 10px;
+      font-weight: 400;
+    }
 
-.message{
-    text-wrap: wrap;
-}
+    &:hover {
+      border-color: var(--pink);
+    }
 
-.sendButton{
+    &:focus {
+      border-color: var(--pink);
+      outline: 2px solid var(--pink);
+      outline-offset: -2px;
+    }
+  }
+
+  /* -------- input error -------- */
+  .inputError {
+    border-color: red;
+  }
+
+  /* -------- send button states -------- */
+  .sendButton {
     text-align: center;
     background-color: black;
     color: var(--white);
-}
-
-.sendButton:hover{
     cursor: pointer;
-}
+    transition:
+      transform 0.3s ease,
+      background-color 0.3s ease;
 
-.sendButtonClicked{
+    &:hover {
+      background-color: var(--pink);
+      transform: scale(1.03);
+    }
+  }
+
+  .sentButton {
     background-color: var(--white);
     color: black;
     border: 0.5px solid black;
     transition: right 2s ease-in-out;
     text-align: center;
-}
+  }
 
-.atomImageDiv{
+  /* -------- confirmation sliding text -------- */
+  .confirmation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    font-size: 40px;
+    text-align: center;
+    opacity: 0;
+    z-index: 1;
+  }
+
+  .slideUpAnimation {
+    animation: slideUp 0.5s ease-in-out forwards;
+  }
+
+  /* -------- atom image -------- */
+  .atomWrapper {
     display: flex;
     justify-content: center;
     align-items: end;
     position: relative;
-}
+    z-index: 1;
+  }
 
-.atomImage{
-    // background-image: url("../../public/assets/images/contact-us/atom.png");
-    background-size: contain;
-    background-repeat: no-repeat;
+  .atomImage {
     height: 120px;
     width: 200px;
+    object-fit: contain;
     position: absolute;
+  }
 }
 
-/* sliding text */
-.slidingText{
-    position: absolute;
-    text-transform: uppercase;
-    font-size: 40px;
-    width: 50%;
-    text-align: center;
-    margin-right: 350px;
-    transform: translate(190px, -139px);
-    /* background-color: aqua; */
+/* -------- keyframes -------- */
+@keyframes slideUp {
+  0% {
     opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translate(180px, -377px);
+  }
 }
 
-.slideUpAnimation{
-    animation: slideUp 0.5s ease-in-out forwards;
-}
+@media (max-width: 970px) {
+  .bookMeeting {
+    height: auto;
+    min-height: 70vh;
 
-@keyframes slideUp{
-    0%{
-        /* transform: translateY(100%); */
-        opacity: 0;
+    .content {
+      flex-direction: column;
+      padding: 50px 30px;
+      gap: 40px;
     }
-    100%{
-        opacity: 1;
-        transform: translate(180px, -377px);
-    }
-}
 
-.zeroOpacity{
-    opacity: 0;
+    .heading {
+      text-align: center;
+      font-size: 30px;
+    }
+
+    .withUs {
+      transform: translateX(100px);
+    }
+
+    .input {
+      width: 300px;
+    }
+  }
 }
