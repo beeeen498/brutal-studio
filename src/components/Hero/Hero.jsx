@@ -4,7 +4,7 @@ import "./Hero.scss";
 
 function Hero() {
   return (
-    <section className="hero">
+    <section className="hero" id="home">
       {/* -------- main content -------- */}
       <div className="heroContent">
         {/* left side - text */}

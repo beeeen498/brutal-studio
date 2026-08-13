@@ -1,48 +1,109 @@
 import React from "react";
+import { FaLinkedinIn, FaXTwitter, FaDribbble } from "react-icons/fa6";
 import "./Footer.scss";
 
 function Footer() {
-    const year = new Date().getFullYear();
+  const year = new Date().getFullYear();
 
-    return (
+  const navItems = [
+    { label: "home", id: "home" },
+    { label: "our story", id: "ourStory" },
+    { label: "our team", id: "ourTeam" },
+    { label: "our services", id: "ourServices" },
+    { label: "our work", id: "ourWork" },
+    { label: "book a meeting", id: "bookMeeting" },
+  ];
 
-        <footer>
-            <div className="footerContent">
+  const handleClick = (e, id) => {
+    e.preventDefault();
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
 
-                <div className="footerNav">
-                    <div className="footerNavItems">
+  return (
+    <footer>
+      {/* -------- background image -------- */}
+      <img
+        className="footerBg"
+        src="/assets/images/footer/footer-background.png"
+        alt=""
+      />
 
-                        <div className="infoHeaderItems">
-                            <h3 className="footerHeader">info</h3>
-                            <p><a href="#home">home</a></p>
-                            <p><a href="#ourStory">our story</a></p>
-                            <p><a href="#ourTeam">our team</a></p>
-                            <p><a href="#ourServices">our services</a></p>
-                            <p><a href="#ourWork">our work</a></p>
-                            <p><a href="#bookMeeting">book a meeting</a></p>
-                        </div>
+      <div className="footerContent">
+        {/* -------- top section: logo + nav columns -------- */}
+        <div className="footerTop">
+          {/* left — logo & tagline */}
+          <div className="footerBrand">
+            <img
+              className="footerLogo"
+              src="/assets/images/footer/footer-logo.png"
+              alt="Brutal Studio logo"
+            />
+            <h2 className="footerTagline">brutal studio</h2>
+            <p className="footerSlogan">brutalism is gentle</p>
+          </div>
 
-                        <div className="contactHeaderItems">
-                            <h3 className="footerHeader">contact</h3>
-                            <div className="address">
-                                <p>123 BRUTAL AV.</p>
-                                <p>LOREM IPSUM</p>
-                                <p>3004 CA.</p>
-                            </div>
-                            <p>+34 123 456 789</p>
-                            <p>HELLO@BRUTALISM.COM</p>
-                        </div>
-                    </div>
+          {/* -------- bottom section: nav + contact -------- */}
+          <div className="footerNav">
+            {/* right — nav columns */}
+            <div className="footerNavItems">
+              {/* info column */}
+              <div className="infoHeaderItems">
+                <h3 className="footerHeader">info</h3>
+                {navItems.map((item) => (
+                  <p key={item.id}>
+                    <a
+                      href={`#${item.id}`}
+                      onClick={(e) => handleClick(e, item.id)}
+                    >
+                      {item.label}
+                    </a>
+                  </p>
+                ))}
+              </div>
+
+              {/* contact column */}
+              <div className="contactHeaderItems">
+                <h3 className="footerHeader">contact</h3>
+                <div className="address">
+                  <p>123 BRUTAL AV.</p>
+                  <p>LOREM IPSUM</p>
+                  <p>3004 CA.</p>
                 </div>
-
-                <div className="bottomContent">    
-                    <p className="tableParagraph">Created by Ben Kedem. Inspired by <a href="https://www.freepik.com/serie/7166638" target="_blank" rel="noopener noreferrer">Freepik</a></p>
-                </div>
+                <p>+34 123 456 789</p>
+                <p>HELLO@BRUTALISM.COM</p>
+              </div>
             </div>
-        </footer>
-    );
+          </div>
+        </div>
+
+        {/* -------- bottom bar -------- */}
+        <div className="footerBottom">
+          <div className="footerSocials">
+            <a href="#" className="socialLink">
+              <FaLinkedinIn />
+            </a>
+            <a href="#" className="socialLink">
+              <FaXTwitter />
+            </a>
+            <a href="#" className="socialLink">
+              <FaDribbble />
+            </a>
+          </div>
+
+          <p className="footerCredit">
+            Created by <a href="https://benkedem.co">Ben Kedem.</a> Inspired by{" "}
+            <a
+              href="https://www.freepik.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Freepik
+            </a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
 }
 
 export default Footer;
-
-
