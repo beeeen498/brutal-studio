@@ -3,6 +3,7 @@
    ============================== */
 
 .bookMeeting {
+    padding-top: 20px;
   min-height: 70vh;
   overflow: hidden;
   position: relative;
@@ -94,14 +95,6 @@
     }
   }
 
-  .sentButton {
-    background-color: var(--white);
-    color: black;
-    border: 0.5px solid black;
-    transition: right 2s ease-in-out;
-    text-align: center;
-  }
-
   /* -------- confirmation sliding text -------- */
   .confirmation {
     position: absolute;
@@ -113,10 +106,6 @@
     text-align: center;
     opacity: 0;
     z-index: 1;
-  }
-
-  .slideUpAnimation {
-    animation: slideUp 0.5s ease-in-out forwards;
   }
 
   /* -------- atom image -------- */
@@ -132,17 +121,6 @@
     height: 120px;
     width: 200px;
     object-fit: contain;
-  }
-}
-
-/* -------- keyframes -------- */
-@keyframes slideUp {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-    transform: translate(180px, -377px);
   }
 }
 
