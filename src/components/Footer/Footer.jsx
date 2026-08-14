@@ -79,13 +79,13 @@ function Footer() {
         {/* -------- bottom bar -------- */}
         <div className="footerBottom">
           <div className="footerSocials">
-            <a href="#" className="socialLink">
+            <a href="#" className="socialLink" aria-label="LinkedIn profile">
               <FaLinkedinIn />
             </a>
-            <a href="#" className="socialLink">
+            <a href="#" className="socialLink" aria-label="Twitter profile">
               <FaXTwitter />
             </a>
-            <a href="#" className="socialLink">
+            <a href="#" className="socialLink" aria-label="Dribbble profile">
               <FaDribbble />
             </a>
           </div>

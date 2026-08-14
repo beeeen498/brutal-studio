@@ -45,7 +45,7 @@ function OurServices() {
         {/* -------- background image -------- */}
         <img
           className="servicesBg"
-          src="/assets/images/services-background.png"
+          src="/assets/images/services/background.png"
           alt=""
         />
 

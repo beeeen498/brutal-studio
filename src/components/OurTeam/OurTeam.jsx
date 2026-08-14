@@ -73,13 +73,25 @@ function OurTeam() {
                 <div className="memberInfoFront">
                   <h2 className="memberName">{name}</h2>
                   <div className="memberSocials">
-                    <a href="#" className="socialLink">
+                    <a
+                      href="#"
+                      className="socialLink"
+                      aria-label="LinkedIn profile"
+                    >
                       <FaLinkedinIn />
                     </a>
-                    <a href="#" className="socialLink">
+                    <a
+                      href="#"
+                      className="socialLink"
+                      aria-label="Twitter profile"
+                    >
                       <FaXTwitter />
                     </a>
-                    <a href="#" className="socialLink">
+                    <a
+                      href="#"
+                      className="socialLink"
+                      aria-label="Dribbble profile"
+                    >
                       <FaDribbble />
                     </a>
                   </div>
