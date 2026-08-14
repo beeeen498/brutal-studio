@@ -1,115 +1,258 @@
-.ourWork {
-    // background-image: url("../../public/assets/images/our-work/our-work-background.png");
-    padding-bottom: 10px;
-    background-size: cover;
-}
+/* ==============================
+   OurWork section
+   ============================== */
 
-.ourWorkHeading {
+.ourWork {
+  padding-bottom: 10px;
+  position: relative;
+
+  /* -------- background image -------- */
+  .workBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+
+  /* -------- section heading -------- */
+  .sectionHeading {
     margin: 0;
     text-transform: uppercase;
     padding: 30px 50px;
     font-size: 50px;
-}
+    position: relative;
+    z-index: 1;
 
-h2, h3 {
-    margin: 0;
-}
+    h2 {
+      margin: 0;
 
-.workDiv {
+      &:last-child {
+        color: var(--pink);
+      }
+    }
+  }
+
+  /* -------- work items list -------- */
+  .workList {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
+    position: relative;
+    z-index: 1;
+  }
 
-.work {
+  /* ==============================
+       individual work card
+       ============================== */
+  .workCard {
     display: flex;
     justify-content: space-between;
     border-top: 1px solid black;
     padding: 10px 50px;
     width: 80%;
     position: relative;
-    overflow: hidden; /* Ensure the sliding element stays within the .work element */
-}
+    overflow: hidden;
+    transition:
+      transform 0.3s ease,
+      border-color 0.3s ease;
+    border-left: 3px solid transparent;
 
-.work:last-child {
-    border-bottom: 1px solid black;
-}
+    &:hover {
+      border-left: 3px solid var(--pink);
+      background-color: rgba(233, 80, 170, 0.05);
+      padding-left: 60px;
+    }
 
-.workTitle {
-    width: 60%;
-    font-size: 30px;
-}
+    &:last-child {
+      border-bottom: 1px solid black;
+    }
+  }
 
-.workText {
+  /* -------- text info -------- */
+  .workInfo {
     height: 200px;
     font-weight: 500;
     width: 60%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
 
-.workText p {
+    p {
+      margin: 0;
+    }
+  }
+
+  .workTitle {
+    width: 60%;
+    font-size: 30px;
     margin: 0;
-}
+  }
 
-.workImage {
+  /* -------- project image -------- */
+  .workImage {
     height: 200px;
     width: 200px;
-    background-size: cover;
-    background-position: center;
+    object-fit: cover;
+    object-position: center;
     border: 0.5px solid black;
     margin-left: 170px;
-}
+  }
 
-.arrowIconDiv {
+  /* ==============================
+       arrow toggle
+       ============================== */
+  .arrowWrapper {
     display: flex;
     align-items: center;
-}
+  }
 
-.arrowIcon {
+  .arrowIcon {
+    all: unset;
     display: flex;
     align-items: center;
     cursor: pointer;
     z-index: 3;
     transition: transform 0.5s ease-in-out;
     color: var(--pink);
-}
 
-.arrowIcon:hover {
-    transform: scale(1.5);
-}
+    &:hover {
+      transform: scale(1.5);
+    }
 
-.arrowIcon.rotate {
-    transform: rotate(180deg); /* Rotate 180 degrees */
-}
+    &.rotate {
+      transform: rotate(180deg);
+    }
+  }
 
-
-.slidingElement {
+  /* ==============================
+       sliding overlay
+       ============================== */
+  .overlay {
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9); /* Adjust color as needed */
+    background-color: rgba(0, 0, 0, 0.9);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 2;
-    color: #fff; /* Adjust text color as needed */
-    font-size: 24px; /* Adjust font size as needed */
-    transition: transform 1s ease-in-out, opacity 1s ease-in-out; /* Set transition duration to 1s */
-    opacity: 0; /* Initial opacity */
+    color: #fff;
+    font-size: 24px;
+    transition:
+      transform 1s ease-in-out,
+      opacity 1s ease-in-out;
+    opacity: 0;
     text-align: center;
+
+    &.slideRight {
+      transform: translateX(100%);
+      opacity: 1;
+    }
+  }
+
+  .overlayText {
+    padding: 20px 10%;
+  }
 }
 
-.slidingElementText{
-    padding: 200px;
+/* ==============================
+   responsive
+   ============================== */
+
+@media (max-width: 970px) {
+  .ourWork {
+    .sectionHeading {
+      font-size: 35px;
+      padding: 20px 30px;
+    }
+
+    .workCard {
+      padding: 10px 30px;
+      width: 90%;
+    }
+
+    .workImage {
+      height: 150px;
+      width: 150px;
+      margin-left: 40px;
+    }
+
+    .workTitle {
+      font-size: 24px;
+    }
+  }
 }
 
-.slideRight {
-    transform: translateX(100%);
-    opacity: 1; /* Final opacity */
+@media (max-width: 665px) {
+  .ourWork {
+    .workCard {
+      flex-direction: column;
+      padding: 20px;
+      width: 90%;
+      gap: 15px;
+    }
+
+    .workInfo {
+      width: 100%;
+      height: auto;
+      gap: 10px;
+    }
+
+    .workTitle {
+      width: 100%;
+      font-size: 20px;
+    }
+
+    .workImage {
+      width: 100%;
+      height: 200px;
+      margin-left: 0;
+    }
+
+    .arrowWrapper {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+    .overlay {
+      font-size: 18px;
+    }
+
+    .overlayText {
+      padding: 20px 5%;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .ourWork {
+    .sectionHeading {
+      font-size: 22px;
+      padding: 15px;
+    }
+
+    .workCard {
+      padding: 15px;
+    }
+
+    .workTitle {
+      font-size: 18px;
+    }
+
+    .workImage {
+      height: 150px;
+    }
+
+    .overlay {
+      font-size: 16px;
+    }
+  }
 }
