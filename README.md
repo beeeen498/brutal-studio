@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# Brutal Studio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A single-page React website for a fictional design studio, built with a neo-brutalist aesthetic. Raw typography, bold colors, and sharp layouts — intentionally rough, carefully crafted.
 
-## Available Scripts
+## Preview
 
-In the project directory, you can run:
+<!-- Add a screenshot here: ![Brutal Studio](screenshot.png) -->
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React 18** (Create React App)
+- **SCSS** with CSS custom properties
+- **GSAP** with ScrollTrigger for scroll-based animations
+- **react-icons** for iconography
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features
 
-### `npm test`
+- Responsive across all breakpoints (1370px, 970px, 665px, 500px, 400px)
+- Animated hamburger menu with slide-in nav panel
+- Story timeline slider with keyboard navigation, swipe support, and parallax
+- 3D flip cards with grayscale-to-color photo reveal
+- Infinite logo carousel
+- Accordion with GSAP staggered entrance animations
+- Project cards with sliding overlay details
+- Contact form with validation and GSAP confirmation animation
+- Scroll-triggered entrance animations throughout
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+```bash
+npm install
+npm start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Project Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+src/
+  components/
+    Header/        — logo + nav bar
+    Hero/          — landing section with headline + image
+    OurStory/      — timeline slider with year navigation
+    OurTeam/       — team cards with 3D flip interaction
+    Companies/     — infinite scrolling client logos
+    OurServices/   — accordion with entrance animations
+    OurWork/       — project cards with sliding overlays
+    BookMeeting/   — contact form with validation
+    Footer/        — site footer with nav + socials
+  data/            — static content (team, services, work, story)
+  styles/          — global SCSS (variables, fonts, resets)
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Design Choices
 
-### `npm run eject`
+The neo-brutalist direction uses Krona One for headings and Outfit for body text. The palette is intentionally limited: black, white (#FEFEFE), pink (#E950AA), and blue (#4847BC). Layouts lean on solid borders, uppercase type, and raw structure over polish — brutalism that's approachable, not hostile.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Author
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[Ben Kedem](https://benkedem.co)
