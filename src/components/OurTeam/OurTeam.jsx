@@ -53,7 +53,7 @@ function OurTeam() {
       {/* -------- team grid -------- */}
       <div className="teamGridWrapper">
         <div className="teamGrid hidden" ref={teamRef}>
-          {teamArray.map(([name, { image, role, description, socials }]) => (
+          {teamArray.map(([name, { image, role, description }]) => (
             <div key={name} className="member">
               {/* photo — click to flip info */}
               <div className="memberPhotoWrapper">
