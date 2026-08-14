@@ -9,22 +9,25 @@ function OurTeam() {
   const [flippedCard, setFlippedCard] = useState(null);
 
   useEffect(() => {
+    const node = teamRef.current;
+    if (!node) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            teamRef.current.classList.remove("hidden");
-            teamRef.current.classList.add("visible");
+            node.classList.remove("hidden");
+            node.classList.add("visible");
           }
         });
       },
       { threshold: 0.5 },
     );
 
-    observer.observe(teamRef.current);
+    observer.observe(node);
 
     return () => {
-      observer.unobserve(teamRef.current);
+      observer.unobserve(node);
     };
   }, []);
 

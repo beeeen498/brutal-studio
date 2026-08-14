@@ -1,5 +1,6 @@
 /* Krona One - headers */
 @import url("https://fonts.googleapis.com/css2?family=Krona+One&family=Outfit:wght@100..900&display=swap");
+
 /* Gruppo - body */
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
 
@@ -8,8 +9,7 @@
   --white: #fefefe;
   --pink: #e950aa;
   --blue: #4847bc;
-  --black: #000000;
-  --grey: #5a595d;
+  --black: #000;
 
   // fonts
   --header-font: "Krona One", sans-serif;
@@ -25,7 +25,6 @@ body {
   color: var(--black);
   font-weight: 100;
   font-style: normal;
-  background-color: var(--grey);
 }
 
 h1,

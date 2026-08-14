@@ -30,11 +30,11 @@
   /* -------- sliding group (duplicated for seamless loop) -------- */
   .logosSlide {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
     width: 100%;
     animation: slide 50s infinite linear;
-  }
+}
 
   .companyImage {
     height: 55px;
@@ -52,16 +52,18 @@
 }
 
 /* -------- responsive -------- */
-@media (max-width: 768px) {
-  .companyImage {
-    height: 40px;
-    margin-right: 100px;
+@media (max-width: 665px) {
+  .companies {
+    .companyImage {
+      height: 40px;
+    }
   }
 }
 
-@media (max-width: 500px) {
-  .companyImage {
-    height: 25px;
-    margin-right: 130px;
+@media (max-width: 400px) {
+  .companies {
+    .companyImage {
+      height: 25px;
+    }
   }
 }
